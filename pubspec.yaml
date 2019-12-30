@@ -26,6 +26,7 @@ dependencies:
   shared_preferences: ^0.5.6
   flutter_dotenv: any
   bubbled_navigation_bar: ^0.0.4
+  fancy_bottom_navigation: ^0.3.2
   color: any
   provider: ^3.1.0+1
   get_it: ^3.0.3
