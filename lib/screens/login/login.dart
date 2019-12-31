@@ -17,10 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [
-              AJColors.DARK_BLUE,
-              AJColors.ALMOST_BLACK
-            ])),
+                colors: [AJColors.DARK_BLUE, AJColors.ALMOST_BLACK])),
         child: Column(
           children: <Widget>[
             Container(
@@ -46,11 +43,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                       counterText: '',
                       enabledBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: AJColors.GUNMETAL)),
+                          borderSide: BorderSide(color: AJColors.GUNMETAL)),
                       border: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: AJColors.GUNMETAL)),
+                          borderSide: BorderSide(color: AJColors.GUNMETAL)),
                       hintText: 'Username',
                       hintStyle: TextStyle(color: AJColors.GUNMETAL)),
                   maxLength: 32,
@@ -62,11 +57,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                       counterText: '',
                       enabledBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: AJColors.GUNMETAL)),
+                          borderSide: BorderSide(color: AJColors.GUNMETAL)),
                       border: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: AJColors.GUNMETAL)),
+                          borderSide: BorderSide(color: AJColors.GUNMETAL)),
                       hintText: 'Password',
                       hintStyle: TextStyle(color: AJColors.GUNMETAL)),
                   maxLength: 32,
@@ -84,28 +77,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () {},
                         child: Text(
                           'Login',
-                          style: TextStyle(color: Colors.white54),
-                        ),
-                      ),
-                      Padding(
-                          padding: const EdgeInsetsDirectional.only(top: 16)),
-                      FlatButton(
-                        color: AJColors.LIGHT_NAVY_BLUE,
-                        onPressed: () {},
-                        child: Text(
-                          'Signup',
-                          style: TextStyle(color: Colors.white54),
-                        ),
-                      ),
-                      Padding(
-                          padding: const EdgeInsetsDirectional.only(top: 42)),
-                      FlatButton(
-                        color: Colors.transparent,
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text(
-                          'Go Back',
                           style: TextStyle(color: Colors.white54),
                         ),
                       )

@@ -1,9 +1,15 @@
-import 'package:acazia_jenkins/screens/tab-container/tab_layout.dart';
+import 'package:acazia_jenkins/locator.dart';
+import 'package:acazia_jenkins/services/navigation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
+import 'package:acazia_jenkins/common/static_data.dart' as routes;
+import 'package:acazia_jenkins/router.dart' as router;
+import 'package:provider/provider.dart';
+
 Future main() async {
   await DotEnv().load('.env');
+  setupLocator();
   runApp(AcaziaJenkinsApp());
 }
 
@@ -11,21 +17,18 @@ class AcaziaJenkinsApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.cyan,
-      ),
-      home: TabLayout(),
-    );
+    return MultiProvider(
+        providers: [],
+        child: MaterialApp(
+          title: 'Acazia Jenkins',
+          theme: ThemeData(
+            primarySwatch: Colors.cyan,
+          ),
+          navigatorKey: locator<NavigationService>().navigatorKey,
+          onGenerateRoute: router.generateRoute,
+          onUnknownRoute: (settings) =>
+              MaterialPageRoute(builder: (context) => Text('Nothing')),
+          initialRoute: routes.LoginRoute,
+        ));
   }
 }
