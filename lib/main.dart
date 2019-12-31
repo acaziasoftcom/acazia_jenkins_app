@@ -28,7 +28,7 @@ class AcaziaJenkinsApp extends StatelessWidget {
           onGenerateRoute: router.generateRoute,
           onUnknownRoute: (settings) =>
               MaterialPageRoute(builder: (context) => Text('Nothing')),
-          initialRoute: routes.LoginRoute,
+          initialRoute: routes.AJTablayout,
         ));
   }
 }
