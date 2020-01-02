@@ -56,7 +56,7 @@ class _DashboardState extends State<Dashboard> {
                   showModalBottomSheet(
                       context: context,
                       builder: (BuildContext bc) {
-                        return JobBottomsheetContent();
+                        return JobBottomsheetContent(item.url);
                       });
                 });
           },
