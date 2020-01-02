@@ -30,7 +30,11 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: Image.asset(
+          'assets/acazia_logo.png',
+          fit: BoxFit.contain,
+          height: 24,
+        ),
       ),
       body: Container(
         child: new ListView.builder(

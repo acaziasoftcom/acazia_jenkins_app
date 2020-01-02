@@ -22,7 +22,7 @@ class AcaziaJenkinsApp extends StatelessWidget {
         child: MaterialApp(
           title: 'Acazia Jenkins',
           theme: ThemeData(
-            primarySwatch: Colors.cyan,
+            primarySwatch: Colors.amber,
           ),
           navigatorKey: locator<NavigationService>().navigatorKey,
           onGenerateRoute: router.generateRoute,

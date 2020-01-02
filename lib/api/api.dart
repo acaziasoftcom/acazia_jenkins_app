@@ -17,7 +17,7 @@ class AJClient extends http.BaseClient {
   @override
   Future<http.Response> post(url,
       {Map<String, String> headers, body, Encoding encoding}) {
-    return client.post(url, headers: headers, encoding: encoding);
+    return client.post(baseUrl = url, headers: headers, encoding: encoding);
   }
 
   @override

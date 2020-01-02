@@ -34,4 +34,8 @@ class ApiProjects {
     data['displayName'] = json.decode(resp.body);
     return resp;
   }
+
+  static Future<dynamic> buildWithParams(String jobName, String targetEnv) async {
+    var resp = await _ajClient.post(jobName);
+  }
 }
