@@ -26,16 +26,22 @@ class ApiProjects {
   }
 
   static Future<dynamic> getProjectDetail(String url) async {
-    var resp = await _ajClient.get(url.replaceAll(rootUrl, '') + 'api/json?pretty=true');
-    print(url.replaceAll(rootUrl, '') + 'api/json?pretty=true');
-    print(resp.body);
+    var resp = await _ajClient
+        .get(url.replaceAll(rootUrl, '') + 'api/json?pretty=true');
 
     Map<String, dynamic> data = Map();
     data['displayName'] = json.decode(resp.body);
     return resp;
   }
 
-  static Future<dynamic> buildWithParams(String jobName, String targetEnv) async {
-    var resp = await _ajClient.post(jobName);
+  static Future<dynamic> buildWithParams(
+      String jobName, String targetEnv) async {
+    try {
+      var resp = await _ajClient.post("job/$jobName/buildWithParameters?TARGET_ENV=$targetEnv");
+      return resp;
+    } catch (e) {
+      print(e);
+      return Error();
+    }
   }
 }

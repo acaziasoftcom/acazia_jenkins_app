@@ -30,6 +30,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.amber[100],
         title: Image.asset(
           'assets/acazia_logo.png',
           fit: BoxFit.contain,
@@ -60,7 +61,12 @@ class _DashboardState extends State<Dashboard> {
                   showModalBottomSheet(
                       context: context,
                       builder: (BuildContext bc) {
-                        return JobBottomsheetContent(item.url);
+                        return JobBottomsheetContent(
+                            targetUrl: item.url,
+                            targetName: item.name,
+                            onSuccess: () {
+                              Navigator.pop(bc);
+                            });
                       });
                 });
           },
