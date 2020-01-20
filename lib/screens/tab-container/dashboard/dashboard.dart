@@ -3,6 +3,9 @@ import 'package:acazia_jenkins/entities/job.dart';
 import 'package:acazia_jenkins/widgets/dashboard/job_bottomsheet_content.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
+FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
 class Dashboard extends StatefulWidget {
   @override
@@ -16,6 +19,14 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     super.initState();
     getProjects();
+
+    initFCM();
+  }
+
+  void initFCM() {
+    _firebaseMessaging.getToken().then((token) {
+      print(token);
+    });
   }
 
   void getProjects() async {
@@ -23,7 +34,6 @@ class _DashboardState extends State<Dashboard> {
     setState(() {
       jobs = resp;
     });
-    // print(resp);
   }
 
   @override
