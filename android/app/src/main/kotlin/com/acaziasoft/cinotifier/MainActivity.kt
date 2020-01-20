@@ -1,4 +1,4 @@
-package com.example.acazia_jenkins
+package com.acaziasoft.cinotifier
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
