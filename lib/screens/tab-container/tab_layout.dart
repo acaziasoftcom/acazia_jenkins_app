@@ -1,7 +1,7 @@
 // This is actually a wrapper for another 5 screens: Guard, Profile, Store, Chat, Account
 // It should have its own navigator.
 import 'package:acazia_jenkins/screens/tab-container/dashboard/dashboard.dart';
-import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class TabLayout extends StatefulWidget {
@@ -12,10 +12,7 @@ class TabLayout extends StatefulWidget {
 class _TabLayoutState extends State<TabLayout>
     with TickerProviderStateMixin<TabLayout> {
   int _currentTabIndex = 1;
-  final _kTabPages = <Widget>[
-    Dashboard(),
-    Dashboard()
-  ];
+  final _kTabPages = <Widget>[Dashboard(), Dashboard()];
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +21,15 @@ class _TabLayoutState extends State<TabLayout>
           index: _currentTabIndex,
           children: _kTabPages,
         ),
-        bottomNavigationBar: FancyBottomNavigation(
-            initialSelection: _currentTabIndex,
-            circleColor: Colors.amber,
-            tabs: [
-              TabData(iconData: Icons.pie_chart, title: "Statistic"),
-              TabData(iconData: Icons.dashboard, title: "Dashboard"),
-              TabData(iconData: Icons.computer, title: "Nodes")
-            ],
-            onTabChangedListener: (position) {}));
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.transparent,
+          color: Colors.amber[100],
+          height: 60,
+          items: <Widget>[
+            Icon(Icons.pie_chart, size: 30, color: Colors.black54),
+            Icon(Icons.dashboard, size: 30, color: Colors.black54),
+            Icon(Icons.computer, size: 30, color: Colors.black54),
+          ],
+        ));
   }
 }

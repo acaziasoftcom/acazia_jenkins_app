@@ -28,11 +28,9 @@ class _DashboardState extends State<Dashboard> {
       print(token);
     });
 
-    firebaseMessaging.configure(
-      onMessage: (test) {
-        print(test);
-      }
-    );
+    firebaseMessaging.configure(onMessage: (test) {
+      print(test);
+    });
   }
 
   void getProjects() async {
@@ -47,6 +45,7 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber[100],
+        centerTitle: true,
         title: Image.asset(
           'assets/acazia_logo.png',
           fit: BoxFit.contain,
