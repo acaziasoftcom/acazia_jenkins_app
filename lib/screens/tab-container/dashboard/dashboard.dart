@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+final FirebaseMessaging firebaseMessaging = FirebaseMessaging();
 
 class Dashboard extends StatefulWidget {
   @override
@@ -24,9 +24,15 @@ class _DashboardState extends State<Dashboard> {
   }
 
   void initFCM() {
-    _firebaseMessaging.getToken().then((token) {
+    firebaseMessaging.getToken().then((token) {
       print(token);
     });
+
+    firebaseMessaging.configure(
+      onMessage: (test) {
+        print(test);
+      }
+    );
   }
 
   void getProjects() async {

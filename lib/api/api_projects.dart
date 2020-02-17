@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:acazia_jenkins/entities/job.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import './api.dart';
+import './_api.dart';
 
 class ApiProjects {
   static String token = DotEnv().env['JENKINS_TOKEN'];
