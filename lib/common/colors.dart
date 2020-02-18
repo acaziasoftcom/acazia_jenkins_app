@@ -16,4 +16,7 @@ class AJColors {
   static var GUNMETAL = HexColor('#505A66');
   static var DIRTY_GREEN = HexColor('#5E7628');
   static var PEA_GREEN = HexColor('#94AA0E');
+  static var AZURE = HexColor('#29B6F6');
+  static var LIGHT_BLUE = HexColor('#90CAF9');
+  static var TOMATO_RED = HexColor('#DD2C00');
 }

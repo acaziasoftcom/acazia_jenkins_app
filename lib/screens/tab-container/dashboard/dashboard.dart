@@ -1,6 +1,6 @@
 import 'package:acazia_jenkins/api/api_projects.dart';
 import 'package:acazia_jenkins/entities/job.dart';
-import 'package:acazia_jenkins/widgets/dashboard/job_bottomsheet_content.dart';
+import 'package:acazia_jenkins/widgets/dashboard/item_job.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -33,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
     });
   }
 
-  void getProjects() async {
+  Future<void> getProjects() async {
     var resp = await ApiProjects.getProjects();
     setState(() {
       jobs = resp;
@@ -53,40 +53,17 @@ class _DashboardState extends State<Dashboard> {
         ),
       ),
       body: Container(
-        child: new ListView.builder(
-          itemCount: jobs.length,
-          itemBuilder: (BuildContext context, int index) {
-            Job item = jobs[index];
+        child: RefreshIndicator(
+            child: new ListView.builder(
+              itemCount: jobs.length,
+              itemBuilder: (BuildContext context, int index) {
+                Job item = jobs[index];
 
-            return InkWell(
-                child: Container(
-                    decoration: BoxDecoration(color: Colors.white, boxShadow: [
-                      BoxShadow(
-                          blurRadius: 6.0,
-                          spreadRadius: 1.0,
-                          color: Colors.black12,
-                          offset: Offset(0.1, 2))
-                    ]),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 14, vertical: 24),
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-                    child: Text(item.name)),
-                onTap: () {
-                  showModalBottomSheet(
-                      context: context,
-                      builder: (BuildContext bc) {
-                        return JobBottomsheetContent(
-                            targetUrl: item.url,
-                            targetName: item.name,
-                            onSuccess: () {
-                              Navigator.pop(bc);
-                            });
-                      });
-                });
-          },
-        ),
+                return ItemJob(job: item);
+              },
+            ),
+            onRefresh: this.getProjects,
       ),
-    );
+    ));
   }
 }

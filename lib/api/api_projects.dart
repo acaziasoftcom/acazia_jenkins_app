@@ -10,7 +10,7 @@ class ApiProjects {
   static AJClient _ajClient = AJClient();
 
   static Future<List<Job>> getProjects() async {
-    var resp = await _ajClient.get('api/json?pretty=' + (true).toString());
+    var resp = await _ajClient.get('api/json?tree=jobs[name,color,url]');
     List<dynamic> respJson = json.decode(resp.body)['jobs'];
     List<Job> jobs = [];
     respJson.map((item) {
