@@ -43,3 +43,4 @@ lib/generated_plugin_registrant.dart
 google-services.json
 GoogleService-Info.plist
 docs/
+.last_build_id
