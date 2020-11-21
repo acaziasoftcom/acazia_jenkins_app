@@ -17,19 +17,20 @@ class _TabLayoutState extends State<TabLayout>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: IndexedStack(
-          index: _currentTabIndex,
-          children: _kTabPages,
-        ),
-        bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: Colors.transparent,
-          color: Colors.amber[100],
-          height: 60,
-          items: <Widget>[
-            Icon(Icons.pie_chart, size: 30, color: Colors.black54),
-            Icon(Icons.dashboard, size: 30, color: Colors.black54),
-            Icon(Icons.computer, size: 30, color: Colors.black54),
-          ],
-        ));
+      body: IndexedStack(
+        index: _currentTabIndex,
+        children: _kTabPages,
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.transparent,
+        color: Colors.amber[100],
+        height: 60,
+        items: <Widget>[
+          Icon(Icons.pie_chart, size: 30, color: Colors.black54),
+          Icon(Icons.dashboard, size: 30, color: Colors.black54),
+          Icon(Icons.computer, size: 30, color: Colors.black54),
+        ],
+      ),
+    );
   }
 }

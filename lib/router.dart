@@ -13,10 +13,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => LoginScreen());
     default:
       return MaterialPageRoute(
-          builder: (_) => Scaffold(
-                body: Center(
-                  child: Text('No path for ${settings.name}'),
-                ),
-              ));
+        builder: (_) => Scaffold(
+          body: Center(
+            child: Text('No path for ${settings.name}'),
+          ),
+        ),
+      );
   }
 }

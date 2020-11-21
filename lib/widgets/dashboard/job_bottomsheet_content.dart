@@ -33,64 +33,67 @@ class _JobBottomsheetContentState extends State<JobBottomsheetContent> {
     var resp = await ApiProjects.buildWithParams(targetName, dropdownValue);
     if (resp.statusCode != 200 && resp.statusCode != 201) {
       return showDialog(
-          context: context,
-          child: new AlertDialog(
-            title: new Text("Error"),
-            content: new Text("Cannot start a new build"),
-          ));
+        context: context,
+        child: new AlertDialog(
+          title: new Text("Error"),
+          content: new Text("Cannot start a new build"),
+        ),
+      );
     }
     onSuccess();
     showDialog(
-        context: context,
-        child: new AlertDialog(
-          title: new Text("Success"),
-          content: new Text("Check Jenkins CI for the build."),
-        ));
+      context: context,
+      child: new AlertDialog(
+        title: new Text("Success"),
+        content: new Text("Check Jenkins CI for the build."),
+      ),
+    );
     return resp;
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        alignment: Alignment.center,
-        height: 1800,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              width: 200,
-              child: DropdownButton<String>(
-                isExpanded: true,
-                value: dropdownValue,
-                iconSize: 24,
-                elevation: 16,
-                style: TextStyle(color: Colors.deepPurple),
-                underline: Container(
-                  height: 1,
-                  color: Colors.deepPurpleAccent,
-                ),
-                onChanged: (String newValue) {
-                  setState(() {
-                    dropdownValue = newValue;
-                  });
-                },
-                items: options.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
+      alignment: Alignment.center,
+      height: 1800,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(
+            width: 200,
+            child: DropdownButton<String>(
+              isExpanded: true,
+              value: dropdownValue,
+              iconSize: 24,
+              elevation: 16,
+              style: TextStyle(color: Colors.deepPurple),
+              underline: Container(
+                height: 1,
+                color: Colors.deepPurpleAccent,
               ),
-            ),
-            Padding(padding: const EdgeInsets.all(22)),
-            RaisedButton(
-              child: Text('Build'),
-              onPressed: () {
-                this.onStartBuild();
+              onChanged: (String newValue) {
+                setState(() {
+                  dropdownValue = newValue;
+                });
               },
-            )
-          ],
-        ));
+              items: options.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
+          ),
+          Padding(padding: const EdgeInsets.all(22)),
+          RaisedButton(
+            child: Text('Build'),
+            onPressed: () {
+              this.onStartBuild();
+            },
+          ),
+        ],
+      ),
+    );
   }
 }

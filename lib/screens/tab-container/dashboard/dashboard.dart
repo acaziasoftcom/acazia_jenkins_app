@@ -30,6 +30,7 @@ class _DashboardState extends State<Dashboard> {
 
     firebaseMessaging.configure(onMessage: (test) {
       print(test);
+      return;
     });
   }
 
@@ -43,27 +44,28 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.amber[100],
-          centerTitle: true,
-          title: Image.asset(
-            'assets/dora_logo.png',
-            fit: BoxFit.contain,
-            height: 24,
-          ),
+      appBar: AppBar(
+        backgroundColor: Colors.amber[100],
+        centerTitle: true,
+        title: Image.asset(
+          'assets/dora_logo.png',
+          fit: BoxFit.contain,
+          height: 24,
         ),
-        body: Container(
-          child: RefreshIndicator(
-            child: new ListView.builder(
-              itemCount: jobs.length,
-              itemBuilder: (BuildContext context, int index) {
-                Job item = jobs[index];
+      ),
+      body: Container(
+        child: RefreshIndicator(
+          child: new ListView.builder(
+            itemCount: jobs.length,
+            itemBuilder: (BuildContext context, int index) {
+              Job item = jobs[index];
 
-                return ItemJob(job: item);
-              },
-            ),
-            onRefresh: this.getProjects,
+              return ItemJob(job: item);
+            },
           ),
-        ));
+          onRefresh: this.getProjects,
+        ),
+      ),
+    );
   }
 }
