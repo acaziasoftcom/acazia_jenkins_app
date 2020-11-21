@@ -18,17 +18,19 @@ class AcaziaJenkinsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [],
-        child: MaterialApp(
-          title: 'Acazia Jenkins',
-          theme: ThemeData(
-            primarySwatch: Colors.amber,
-          ),
-          navigatorKey: locator<NavigationService>().navigatorKey,
-          onGenerateRoute: router.generateRoute,
-          onUnknownRoute: (settings) =>
-              MaterialPageRoute(builder: (context) => Text('Nothing')),
-          initialRoute: routes.AJTablayout,
-        ));
+      providers: [],
+      child: MaterialApp(
+        title: 'Acazia Jenkins',
+        theme: ThemeData(
+          primarySwatch: Colors.amber,
+        ),
+        navigatorKey: locator<NavigationService>().navigatorKey,
+        onGenerateRoute: router.generateRoute,
+        onUnknownRoute: (settings) => MaterialPageRoute(
+          builder: (context) => Text('Nothing'),
+        ),
+        initialRoute: routes.AJTablayout,
+      ),
+    );
   }
 }
