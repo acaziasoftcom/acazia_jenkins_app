@@ -30,6 +30,7 @@ class _DashboardState extends State<Dashboard> {
 
     firebaseMessaging.configure(onMessage: (test) {
       print(test);
+      return;
     });
   }
 
@@ -54,16 +55,17 @@ class _DashboardState extends State<Dashboard> {
       ),
       body: Container(
         child: RefreshIndicator(
-            child: new ListView.builder(
-              itemCount: jobs.length,
-              itemBuilder: (BuildContext context, int index) {
-                Job item = jobs[index];
+          child: new ListView.builder(
+            itemCount: jobs.length,
+            itemBuilder: (BuildContext context, int index) {
+              Job item = jobs[index];
 
-                return ItemJob(job: item);
-              },
-            ),
-            onRefresh: this.getProjects,
+              return ItemJob(job: item);
+            },
+          ),
+          onRefresh: this.getProjects,
+        ),
       ),
-    ));
+    );
   }
 }
