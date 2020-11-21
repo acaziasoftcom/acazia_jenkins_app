@@ -17,11 +17,11 @@ class _JobBottomsheetContentState extends State<JobBottomsheetContent> {
   final String targetUrl;
   final String targetName;
   final Function onSuccess;
-  final List<String> options = ['development', 'staging', 'production'];
+  final List<String> options = ['adhoc-stg', 'adhoc-prod'];
 
   _JobBottomsheetContentState(
       {this.targetUrl, this.targetName, this.onSuccess});
-  String dropdownValue = 'development';
+  String dropdownValue = 'adhoc-stg';
 
   @override
   void initState() {

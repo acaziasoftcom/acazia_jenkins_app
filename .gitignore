@@ -44,3 +44,4 @@ google-services.json
 GoogleService-Info.plist
 docs/
 .last_build_id
+**.env
